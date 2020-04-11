@@ -4,20 +4,17 @@
     <ProjectGuid>{84585784-5BDC-43BE-B714-23EA2E7AEA5B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>rdkafka_example</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)common.vcxproj"/>
+  <Import Project="$(SolutionDir)common.vcxproj" />
   <PropertyGroup Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>librdkafkacpp.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BuildOutputDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -40,11 +37,25 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/../src-cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/../src-cpp;$(ProjectDir)\install-debug\Include;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Link>
+        <SubSystem>Console</SubSystem>
+        <AdditionalDependencies>libprotobuf-lited.lib;libprotobufd.lib;libprotocd.lib;librdkafkacpp.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+        <AdditionalLibraryDirectories>$(BuildOutputDir);$(ProjectDir)\Install-debug\lib</AdditionalLibraryDirectories>
+      </Link>
+      <AdditionalLibraryDirectories>$(BuildOutputDir);$(ProjectDir)\Install-debug\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libprotobuf-lited.lib;libprotobufd.lib;libprotocd.lib;librdkafkacpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>protoc -I=$(ProjectDir) --cpp_out=$(ProjectDir) $(ProjectDir)/addressbook.proto</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>This is to compile the protobuf file.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -75,10 +86,13 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/../src-cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/../src-cpp;$(ProjectDir)\Install-release\Include;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>libprotobuf-lite.lib;libprotobuf.lib;libprotoc.lib;librdkafkacpp.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BuildOutputDir);$(ProjectDir)\Install-release\lib</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -87,9 +101,16 @@
   <ItemGroup>
     <ClCompile Include="..\..\examples\rdkafka_example.cpp" />
     <ClCompile Include="..\wingetopt.c" />
+    <ClCompile Include="addressbook.pb.cc" />
+    <ClCompile Include="protocolbuffer_sender_receiver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\wingetopt.h" />
+    <ClInclude Include="addressbook.pb.h" />
+    <ClInclude Include="protocolbuffer_sender_receiver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="addressbook.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

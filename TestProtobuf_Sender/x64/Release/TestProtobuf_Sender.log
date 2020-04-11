@@ -1,0 +1,8 @@
+﻿  addressbook.pb.cc
+C:\MySpace\Work\Kafka_lib\librdkafka\TestProtobuf_Sender\addressbook.pb.cc(518,62): warning C4244: '=': conversion from 'google::protobuf::uint64' to 'google::protobuf::int32', possible loss of data
+  TestProtobuf_Sender.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 826 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  TestProtobuf_Sender.vcxproj -> C:\MySpace\Work\Kafka_lib\librdkafka\win32\x64\Release\TestProtobuf_Sender.exe

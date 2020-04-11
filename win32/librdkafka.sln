@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "librdkafka", "librdkafka.vcxproj", "{4BEBB59C-477B-4F7A-8AE8-4228D0861E54}"
 EndProject
@@ -46,6 +46,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win_ssl_cert_store", "win_s
 	ProjectSection(ProjectDependencies) = postProject
 		{E9641737-EE62-4EC8-88C8-792D2E3CE32D} = {E9641737-EE62-4EC8-88C8-792D2E3CE32D}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestProtobuf_Sender", "..\TestProtobuf_Sender\TestProtobuf_Sender.vcxproj", "{599E32E6-F6A3-4A9E-A772-73598CFFFD14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,8 +191,29 @@ Global
 		{1A64A271-4840-4686-9F6F-F5AF0F7C385A}.Release|x64.Build.0 = Release|x64
 		{1A64A271-4840-4686-9F6F-F5AF0F7C385A}.Release|x86.ActiveCfg = Release|Win32
 		{1A64A271-4840-4686-9F6F-F5AF0F7C385A}.Release|x86.Build.0 = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|Win32.ActiveCfg = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|Win32.Build.0 = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|x64.ActiveCfg = Debug|x64
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|x64.Build.0 = Debug|x64
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|x86.ActiveCfg = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Debug|x86.Build.0 = Debug|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|Any CPU.ActiveCfg = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|Win32.ActiveCfg = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|Win32.Build.0 = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|x64.ActiveCfg = Release|x64
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|x64.Build.0 = Release|x64
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|x86.ActiveCfg = Release|Win32
+		{599E32E6-F6A3-4A9E-A772-73598CFFFD14}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {546521A1-9AD1-40DC-AED1-EB2AD51CB298}
 	EndGlobalSection
 EndGlobal
